@@ -1,0 +1,70 @@
+<div ng-controller= 'productController'>
+  <article class="section-top">
+    <div class="search">
+      <input  type="text"  placeholder="Search" ng-model="filerByName">
+    </div>
+
+    <div  class="navLeft">
+
+      <h3>Order by: </h3>
+
+      <ul>
+        <li class= "botonOrder" ng-click="orderByScore='-score'" >Score</li>
+        <li class= "botonOrder" ng-click="filterByCategory=''">All </li>
+        <li class= "botonOrder" ng-click="filterByCategory='Desktop'">Desktop</li>
+        <li class= "botonOrder" ng-click="filterByCategory='Laptop'" >Laptop</li>
+        <li class= "botonOrder" ng-click="filterByCategory='Smartphone'">Smartphone</li>
+        <li class= "botonOrder" ng-click="filterByCategory='Tablet'">Tablet</li>
+        <li class= "botonOrder" ng-click="filterByCategory='Accesory'">Accesory</li>
+      </ul>
+
+    </div>
+
+  </article>
+
+
+  <section>
+    <table id="tableProduct">
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Units</th>
+        <th>Category</th>
+        <th>Score</th>
+        <th>like</th>
+        <th></th>
+      </tr>
+
+      <tr ng-repeat = "prod in storeProducts | filter:filerByName |filter:filterByCategory |orderBy:orderByScore" >
+        <td><img ng-src= "{{prod.img}}" class ="imgPresentacion"></td>
+        <td>{{prod.name}}</td>
+        <td>{{prod.price | currency}}</td>
+        <td>{{prod.units}}</td>
+        <td>{{prod.category}}</td>
+        <td>{{prod.score}}</td>
+        <td ng-click="clickLike(prod)"><div id="botLike"><img id="like"src="../images/like.png"></div></td>
+        <td><div class= "botonOrder" ><a ng-click="add(prod)">add</a></div></td>
+      </tr>
+    </table>
+  </section>
+
+  <aside>
+    <table border="1" >
+      <tr>
+        <th>Total Price</th>
+        <th>Total Units</th>
+      </tr>
+      <tr>
+        <td>{{totalPriceCar  | currency}}</td>
+        <td>{{totalUnitsCar}}</td>
+      </tr>
+      <tr>
+        <td  colspan="2" id="contPay">
+          <div><a  class= "botonOrder" ng-href="#/shop">shop</a></div>
+        </td>
+      </tr>
+    </table>
+
+  </aside>
+</div>

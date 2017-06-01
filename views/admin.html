@@ -1,0 +1,28 @@
+<div>
+   <section>
+      <div id="ft">
+         <table  cellpadding="4" class="tabla">
+            <tr>
+               <th>Document</th>
+               <th>Date</th>
+               <th>Total Units</th>
+               <th>Total Price</th>
+            </tr>
+            <tr ng-repeat="prodReport in productPurchase">
+               <td>{{prodReport.Document}}</td>
+               <td>{{prodReport.DateSell | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+               <td>{{prodReport.TotalUnits }}</a></td>
+               <td>{{prodReport.TotalPrice | currency}}</td>
+
+            </tr>
+
+         </table>
+      </div>
+   </section>
+
+   <aside>
+
+      <div class= "botonOrder"><p ng-click="generateReport()">Generate Report</p></div>
+   </aside>
+
+</div>

@@ -1,0 +1,49 @@
+
+<div>
+   <aside>
+      <table border="1">
+         <tr>
+            <!--<th>Image</th>-->
+            <th>Name</th>
+            <th>Units</th>
+            <th>Category</th>
+            <th>Price Unit</th>
+            <th>Total Price Unit</th>
+            <th></th>
+         </tr>
+         <tr ng-repeat="prodCar in contCar">
+            <!--<td><img ng-src= "{{prodCar.img}}"></td>-->
+            <td>{{prodCar.name}}</td>
+            <td>{{prodCar.qty}}</a></td>
+            <td>{{prodCar.category}}</td>
+            <td>$ {{prodCar.price}}</td>
+            <td>$ {{prodCar.price * prodCar.qty}}</td>
+            <td div id="delete"><a ng-click="remove(prodCar)">Delete</a></td>
+         </tr>
+
+         <tr>
+            <td colspan="7">Total Price: {{totalPriceCar | currency}}
+            </td>
+         </tr>
+         <tr>
+            <td colspan="7">Total Units: {{totalUnitsCar}}</td>
+         </tr>
+      </table>
+      <center>
+         Document: *
+         <br>
+         <input id="document" ng-model="date.document" title="require a document" type="text"   placeholder="Document" required pattern="[0-9]{1,20}"/>
+         <br>
+         address *:
+         <br>
+         <input id="address" ng-model="date.address" title="require a address" type="text" placeholder="Address" required/>
+         <br>
+         E-mail *:
+         <br>
+         <input id="email" ng-model="date.email" type="email" placeholder="example@example.com" required/>
+         <br>
+         <p class= "botonOrder" ng-click="pay(date)">Pay</p>
+      </center>
+
+   </aside>
+</div>
